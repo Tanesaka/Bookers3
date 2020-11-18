@@ -1,0 +1,22 @@
+<%= render "layouts/error_book", model: @book %>
+
+<div class="containar">
+  <div class="row no-gutters">
+     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+
+<h3 class="text-dark bg-light p-4 mb-0"><i class="fas fa-cogs"></i> Book edit</h3>
+<div class="form-body p-4">
+<!-- form_with部分 -->
+<%= form_with model:@book, local: true do |f| %>
+  <h6><i class="far fa-bookmark"></i> Title</h6>
+  <%= f.text_field :title %>
+  <h6><i class="far fa-comment-dots"></i> Opinion</h6>
+  <%= f.text_area :body %>
+  <br>
+  <%= f.submit 'Update', class:"btn-dark btn-sm btn-block text-center" %>
+<% end %>
+</div>
+
+ </div>
+  </div>
+</div>

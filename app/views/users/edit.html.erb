@@ -1,0 +1,33 @@
+<%= render "layouts/error_user", model: @user %>
+<div class="containar">
+  <div class="row no-gutters">
+     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+
+
+<h3 class="text-dark bg-light p-4 mb-0"><i class="fas fa-cogs"></i> User edit</h3>
+<div class="form-body p-4">
+
+<%= form_with model:@user, local:true do |f| %>
+  <label for="inputName"><i class="fas fa-signature"></i>Name</label>
+  <br>
+  <%= f.text_field :name, autofocus: true, placeholder:"Name"%>
+
+  <hr>
+
+  <label for="inputImage"><i class="far fa-images"></i>ProfileImage</label>
+  <br>
+  <%= f.attachment_field :profile_image %>
+
+  <hr>
+   <label for="inputProfile"><i class="fas fa-file-signature"></i>Introduction</label>
+   <br>
+    <%= f.text_area :introduction, autofocus: true, placeholder:"Introduction" %>
+  <hr>
+  <%= f.submit "Update!", class:"btn-dark btn-sm btn-block text-center" %>
+
+<% end %>
+  </div>
+
+ </div>
+  </div>
+</div>

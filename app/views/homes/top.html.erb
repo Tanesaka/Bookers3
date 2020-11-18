@@ -1,0 +1,24 @@
+
+<div class="alert-success" >
+<%= notice %>
+</div>
+
+<div class="container">
+
+<h1>welcome to <i class="fas fa-book"></i>Bookers !!</h1>
+<% if user_signed_in? %>
+<h2 class="text-success">Hi, <%= current_user.name %> !!</h2>
+<% end %>
+<p>In <i class="fas fa-book"></i>Bookers,</p>
+<p>you can share and exchange your opinions , inpressions , and emotions<br>
+about various books!</p>
+
+<% if user_signed_in? %>
+<%= link_to "Enter!", books_path, class:"btn-dark btn-sm btn-block text-center h1" %>
+<% else %>
+<%= link_to "Log in", new_user_session_path, class:"btn-dark btn-sm btn-block text-center h1" %>
+<%= link_to "Sign up", new_user_registration_path, class:"btn-dark btn-sm btn-block text-center h1" %>
+<% end %>
+
+</div>
+<br>

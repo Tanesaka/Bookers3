@@ -1,0 +1,54 @@
+class BooksController < ApplicationController
+
+  def new
+  end
+
+  def create
+    @book = Book.new(book_params)
+    @book.user_id = current_user.id
+    if @book.save
+    redirect_to books_path, notice: 'You have created book successfully.'
+    else
+      @books = Book.all
+      @myuser = current_user
+    render :index
+    end
+  end
+
+  def index
+    @book = Book.new
+    @myuser = current_user
+    @books = Book.all
+  end
+
+  def show
+    @newbook = Book.new
+    @book = Book.find(params[:id])
+    @bookuser = @book.user
+  end
+
+  def edit
+    @book = Book.find(params[:id])
+  end
+
+  def update
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+    redirect_to book_path, notice: 'You have updated book successfully.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to books_path,notice: 'You have deleted book successfully.'
+  end
+
+  private
+  def book_params
+    params.require(:book).permit(:title, :body)
+  end
+
+end
