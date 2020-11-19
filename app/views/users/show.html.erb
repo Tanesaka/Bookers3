@@ -28,7 +28,7 @@
     <%= book.title %>
     <% end %>
   </td>
-  <td><%= book.body %></td>
+  <td><%= Rinku.auto_link(book.body, :all, 'target="_blank"').html_safe %></td>
   </tr>
 <% end %>
   </table>

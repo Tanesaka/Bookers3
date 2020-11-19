@@ -1,15 +1,18 @@
+<div class="container respo">
+
+
 <h3><i class="fas fa-glasses"></i> User info</h3>
 <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "img/no_image.jpg",size:'100x100' %>
 <div>
 <h6><i class="fas fa-signature"></i>name</h6>
-<p>
+<p class="text-break" style="width: 10rem;">
   <%= user.name %>
 </p>
 </div>
 
 <div>
 <h6><i class="fas fa-file-signature"></i>introduction</h6>
-<p>
+<p class="text-break" style="width: 10rem;">
 <%= user.introduction %>
 </p>
 </div>
@@ -32,3 +35,6 @@
   <%= f.submit 'Create Book', class:"btn-dark btn-sm btn-block text-center" %>
 <% end %>
 <br>
+
+
+</div>
